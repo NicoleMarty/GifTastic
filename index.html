@@ -11,15 +11,29 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <button data-hipsterThings="beards">beards</button>
+                <button data-hipsterThings="vintage">vintage</button>
+                <button data-hipsterThings="pabst-blue-ribbon">pabst blue ribbon</button>
+                <button data-hipsterThings="indie-rock">indie rock</button>
+                <button data-hipsterThings="unicycle">unicycle</button>
+                <button data-hipsterThings="gentrification">gentrification</button>
+                <div id="gifs-appear-here"></div>
+            </div>
 
-    <button data-hipsterThings="beards">beards</button>
-    <button data-hipsterThings="vintage">vintage</button>
-    <button data-hipsterThings="pabst-blue-ribbon">pabst blue ribbon</button>
-    <button data-hipsterThings="indie-rock">indie rock</button>
-    <button data-hipsterThings="unicycle">unicycle</button>
-    <button data-hipsterThings="gentrification">gentrification</button>
 
-    <div id="gifs-appear-here">
+            <div class="col-sm-4">
+                <form id="hipster-form">
+                    <label for="hipster-input">Add a Hipster Thing, Yo!</label>
+                    <input type="text" id="hipster-input"><br>
+
+                    <!-- Button triggers new hipster thing to be added -->
+                    <input id="add-hipsterThing" type="submit" value="Add it!">
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- JavaScript -->
