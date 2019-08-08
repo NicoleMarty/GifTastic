@@ -1,13 +1,10 @@
 // Array of things
 var hipsterThings = ["beards", "vintage", "pabst-blue-ribbon", "indie-rock", "unicycle", "gentrification"];
 // Generic function for capturing the new hipster thing from the data-attribute
-function NewHipsterThing(hipsterThings, hipsterThingsDiv) {
-    $(hipsterThingsDiv).empty(); // Empty the hipsterThingsDiv
-
+function NewHipsterThing() {
     var newHipsterThing = $(this).attr("data-hipsterThings");
-
     alert(newHipsterThing);
-}
+};
 
 // On click event for things buttons
 $("button").on("click", function() {
@@ -27,12 +24,24 @@ $("button").on("click", function() {
             var p = $("<p>");
             var rating = results[i].rating;
             var p = $("<p>").text("Rating: " + rating);
-            var animated = response.data[i].images.fixed_height.url;
-            var still = response.data[i].images.fixed_height_still.url;
             var hipsterThingsImage = $("<img>");
+            hipsterThingsImage.attr("src", results[i].images.fixed_height_still.url);
+            hipsterThingsImage.attr("src", results[i].images.fixed_height.url);
             hipsterThingsDiv.append(p);
             hipsterThingsDiv.append(hipsterThingsImage);
             $("#gifs-appear-here").prepend(hipsterThingsDiv);
+        };
+
+    });
+
+    $(hipsterThingsImage).on("click", function() {
+        var state = $(this).attr("data-state");
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
         };
     });
 });
