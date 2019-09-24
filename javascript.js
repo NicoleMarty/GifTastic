@@ -25,24 +25,21 @@ $("button").on("click", function() {
             var rating = results[i].rating;
             var p = $("<p>").text("Rating: " + rating);
             var hipsterThingsImage = $("<img>");
-            hipsterThingsImage.attr("src", results[i].images.fixed_height_still.url);
-            //hipsterThingsImage.attr("src", results[i].images.fixed_height.url);
+            hipsterThingsImage.attr("src", results[i].images.fixed_height_still.url)
+            hipsterThingsImage.on("click", function() {
+                    console.log("click")
+
+                })
+                //hipsterThingsImage.attr("src", results[i].images.fixed_height.url);
             hipsterThingsDiv.append(p);
             hipsterThingsDiv.append(hipsterThingsImage);
             $("#gifs-appear-here").prepend(hipsterThingsDiv);
+
+            //hipsterThingsImage.on("click", function() {
+
+            // $(hipsterThingsImage).attr("src", results[i].images.fixed_height.url);
+
+            //});
         };
-
-
-
-
-        $("#gifs-appear-here").on("click", function() {
-            console.log("click")
-            for (var i = 0; i < results.length; i++) {
-                var hipsterThingsImage = $("<img>");
-                if (hipsterThingsImage.attr("src", results[i].images.fixed_height_still.url) === true) {
-                    hipsterThingsImage.attr("src", results[i].images.fixed_height_animate.url);
-                }
-            }
-        });
     });
 });
